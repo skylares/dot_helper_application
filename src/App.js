@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import LeftContainer from './LeftSide';
+import RightImage from './RightSide';
+
 
 function App() {
   return (
