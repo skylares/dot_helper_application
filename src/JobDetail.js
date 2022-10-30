@@ -14,7 +14,7 @@ import { ThemeProvider, createTheme } from '@mui/system';
 
 import {useState} from "react";
 import { milling_data, spread_rate } from './mData';
-import { createData } from './DataDisplay';
+import BasicTable, { createData } from './DataDisplay';
 import  SelectTextFields from "./dropDowns"
 
 import IconButton from '@mui/material/IconButton';
@@ -67,6 +67,7 @@ export default function JobDetail({ allJobs }) {
 
 
  
+  //general milling input useState variables 
 
   const [map, setMap] = useState("");
   const [tons, setTons] = useState(1);
@@ -88,8 +89,10 @@ export default function JobDetail({ allJobs }) {
 
   const [etons, setEtons] = useState(5000);
 
+
+  //ayards are allotted yards 
   const [ayards, setAyards] = useState(1);
-  
+  //area
   const [area, setArea] = useState(length*width); 
 
 
@@ -99,6 +102,8 @@ export default function JobDetail({ allJobs }) {
     setArea(Math.round(length * width));
     setEtons(Math.round(sr2*area/(2000*9)));
     setAyards(tons * 2000/sr2);
+    setFill(fill);
+    console.log(fill);
 
 
     //alert("clcie");
@@ -159,12 +164,17 @@ export default function JobDetail({ allJobs }) {
 
           
           <h4> Milling Depth</h4>  
-          <TextInput updateValue={setDepth} />
+          <TextInput updateValue={setDepth}  />
+          <h4>Alloted Tons</h4>
+          <TextInput updateValue={setTons} placeholder={ayards*sr2/2000} />
+          <h4>Alloted Square Yards</h4>
+          <TextInput updateValue={setAyards} placeholder={tons*2000/sr2}/>
           <h4>Choose Material </h4>  
           <div
           onClick = {handleClick}
           >
-          <SelectTextFields/>
+          <SelectTextFields updateLabel={setFill} />
+          
           </div>
           <Box
             sx = {{border: 1, borderColor: BLACK}}
@@ -188,16 +198,17 @@ export default function JobDetail({ allJobs }) {
           
           }(lbs/sy)</p>
           </Box>
+          <h4>Map Number</h4>
+          <TextInput updateValue={setMap} />
+          <h4>Name</h4>
+          <TextInput/>
           <h4>Station Number</h4>
           <TextInput updateValue={setStation} />
           <h4>Length</h4>  
           <TextInput updateValue={setLength} />
           <h4>Width</h4>
           <TextInput updateValue={setWidth} />
-          <h4>Alloted Tons</h4>
-          <TextInput updateValue={setTons} />
-          <h4>Map Number</h4>
-          <TextInput updateValue={setMap} />
+          
               
 
           </Box>
@@ -214,15 +225,37 @@ export default function JobDetail({ allJobs }) {
           onClick={() => {
             //console.log(milling_data[5]);
             milling_data.push(
-              createData(map, tons, yards, depth, fill, station, length, width)
+              createData(map, tons, yards, depth, fill, station, length, width, area, patched)
             );
           }}
         >
           Add Data 
         </PrimaryButton>
+        <PrimaryButton
+          sx={{
+            textTransform: "none",
+            fontWeight: 400,
+            fontSize: "12px",
+            width: "100%",
+            maxWidth: 300,
+            bgcolor: PRIMARY_GREEN 
+          }}
+          onClick={handleClick}
+        >
+          Calculate 
+        </PrimaryButton>
      
           
           <Divider />
+          <Box>
+              <BasicTable/>
+
+
+
+
+
+        </Box>
+
         </Box>
 
         <Box
@@ -260,23 +293,13 @@ export default function JobDetail({ allJobs }) {
               } (Yards ^ 2)</p>
              </Box>
 
-             <PrimaryButton
-          sx={{
-            textTransform: "none",
-            fontWeight: 400,
-            fontSize: "12px",
-            width: "100%",
-            maxWidth: 300,
-            bgcolor: PRIMARY_GREEN 
-          }}
-          onClick={handleClick}
-        >
-          Calculate 
-        </PrimaryButton>
+      
 
 
         </Box>
 
+
+      
     
 
 
@@ -293,85 +316,7 @@ export default function JobDetail({ allJobs }) {
 
 
 
-        <Box
-          sx={{
-            background: "white",
-            borderRadius: "5px",
-            width: "35%",
-            height: "400px"
-          }}
-        >
-          <SpacerBox>
-          <Link to="/millingData" style={{ color: "white", textDecoration: "none" }}>
-              <Button>Go to Milling Data</Button>
-          </Link>
-            <SecondaryButton
-              sx={{
-                textTransform: "none",
-                fontWeight: 400,
-                fontSize: "12px",
-                width: "100%",
-                marginTop: "10px"
-              }}
-            >
-              <FavoriteBorderIcon sx={{ marginRight: "3px" }} />
-              Share this Tool
-            </SecondaryButton>
-          </SpacerBox>
-          <Divider />
-          <SpacerBox>
-            <Typography variant="subtitle2" gutterBottom component="div">
-              About this tool
-            </Typography>
-            <Typography
-              variant="body2"
-              sx={{ margin: "15px 0", fontSize: "12px", color: "#8B8B8B" }}
-            >
-              {selectedJob.paymentVerified ? (
-                <>
-                  <CheckCircleOutlineIcon
-                    fontSize="inherit"
-                    sx={{ color: PRIMARY_GREEN, marginRight: "3px" }}
-                  />
-                  Click Here to Learn 
-                </>
-              ) : (
-                <>Payment Not Verified</>
-              )}
-            </Typography>
-            <Typography
-              variant="body2"
-              sx={{ margin: "15px 0", fontSize: "12px", color: "#8B8B8B" }}
-            >
-              
-            </Typography>
-          </SpacerBox>
-          <Divider />
-          <SpacerBox>
-            <Typography variant="subtitle2" gutterBottom component="div">
-              Questions?
-            </Typography>
-            <TextField
-              disabled
-              id="standard-disabled"
-              defaultValue="help@dothelper.com"
-              variant="standard"
-            />
-            <Link
-              href="#"
-              sx={{
-                textDecoration: "none",
-                fontWeight: 600,
-                marginTop: "10px",
-                display: "block",
-                fontSize: "12px"
-              }}
-              color={PRIMARY_GREEN}
-            >
-              Copy our contact email
-            </Link>
-          </SpacerBox>
-        </Box>
+       
 
 
 

@@ -3,7 +3,7 @@
 
 
 
-# Getting Started with Create React App
+# Yo mama's so fat, she was overthrown by a small militia group, and now she's known as the Republic of Yo Mama.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -11,7 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### Yo mama's cooking so nasty, she flys got together and fixed the hole in the window screen.
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
