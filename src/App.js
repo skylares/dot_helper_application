@@ -2,22 +2,22 @@ import { useState, useEffect } from "react";
 import "./styles.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from "./Login";
-import JobBoard from "./JobBoard";
-import JobDetail from "./JobDetail";
+import ToolBoard from "./ToolBoard";
+import ToolDetail from "./ToolDetail";
 
-import JOBS from "./jobs";
+import TOOLS from "./tools";
 import AboutPage from "./About";
 import BasicTable from "./DataDisplay";
 
 export default function App() {
   const navigate = useNavigate();
 
-  const [allJobs, setAllJobs] = useState(JOBS);
+  const [allTools, setAllTools] = useState(TOOLS);
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     if (loggedIn) {
-      navigate("/jobs");
+      navigate("/tools");
     }
   }, [loggedIn]);
 
@@ -25,8 +25,8 @@ export default function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Login setLoggedIn={setLoggedIn} />} />
-        <Route path="/jobs" element={<JobBoard allJobs={allJobs} />} />
-        <Route path="/job/:id" element={<JobDetail allJobs={allJobs} />} />
+        <Route path="/tools" element={<ToolBoard allTools={allTools} />} />
+        <Route path="/tool/:id" element={<ToolDetail allTools={allTools} />} />
         <Route path="/About" element={<AboutPage/>}  />
         <Route path="/millingData" element= {<BasicTable/>} />
 

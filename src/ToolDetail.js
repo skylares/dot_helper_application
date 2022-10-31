@@ -46,11 +46,11 @@ export const SpacerBox = styled(Box)(() => ({
   padding: "20px"
 }));
 
-export default function JobDetail({ allJobs }) {
+export default function ToolDetail({ allTools }) {
   let { id: idFromURL } = useParams();
 
-  const selectedJob = allJobs.find((job) => {
-    return job.id === Number(idFromURL);
+  const selectedTool = allTools.find((tool) => {
+    return tool.id === Number(idFromURL);
   });
 
   const [values, setValues] = React.useState({
@@ -123,7 +123,7 @@ export default function JobDetail({ allJobs }) {
             component="div"
             sx={{ marginBottom: "30px" }}
           >
-            {selectedJob.title}
+            {selectedTool.title}
           </Typography>
           <Divider />
           <Box sx={{ padding: "20px 0" }}>
@@ -133,7 +133,7 @@ export default function JobDetail({ allJobs }) {
               gutterBottom
               component="div"
             >
-              {selectedJob.category}
+              {selectedTool.category}
             </Typography>
             <Typography
               sx={{ fontWeight: 400 }}
@@ -141,7 +141,7 @@ export default function JobDetail({ allJobs }) {
               gutterBottom
               component="div"
             >
-              Put Tool Description Here Later {selectedJob.instructions}
+              Put Tool Description Here Later {selectedTool.instructions}
             </Typography>
             <Typography variant="subtitle2" gutterBottom component="div">
               <img
@@ -149,8 +149,8 @@ export default function JobDetail({ allJobs }) {
                 src="https://assets.codepen.io/6060109/location-icon.png"
                 style={{ height: "13px", marginRight: "5px" }}
               />
-              {selectedJob.remote ? "Location will display here, " : ""}
-              {selectedJob.location}
+              {selectedTool.remote ? "Location will display here, " : ""}
+              {selectedTool.location}
             </Typography>
           </Box>
           <Divider />

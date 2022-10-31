@@ -90,7 +90,7 @@ export default function ButtonAppBar() {
            <Link to="/About" style={{ color: "white", textDecoration: "none" }}>
               <Button color="inherit">About</Button>
             </Link>
-            <Link to="/jobs" style={{ color: "white", textDecoration: "none" }}>
+            <Link to="/tools" style={{ color: "white", textDecoration: "none" }}>
               <Button color="inherit">Tool Menu</Button>
             </Link>
             <Link to="/" style={{ color: "white", textDecoration: "none" }}>

@@ -29,7 +29,7 @@ export function createData(
   area,
   reqTons
 ) {
-
+    
   return {
     map,
     tons,
@@ -61,11 +61,11 @@ export default function BasicTable() {
   const [newData, setData] = useState("");
   return (
     <>
-      <TopNav />
+      
       <MainBody>
-        <Box sx={{ width: "15%" }}></Box>
-
-        <Box sx={{ width: "70%", color: "red" }}>
+        <Box sx={{ width: "100%" }}></Box>
+      
+        <Box sx={{ width: "100%", color: "red" }}>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
@@ -107,9 +107,9 @@ export default function BasicTable() {
           </TableContainer>
           
 
-      
-        </Box>
         
+        </Box>
+   
       </MainBody>
     </>
   );

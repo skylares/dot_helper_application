@@ -61,11 +61,13 @@ const materials = [
   },
 ];
 
-export default function SelectTextFields() {
+export default function SelectTextFields({updateLabel}) {
   const [material, setMaterial] = React.useState(100);
 
   const handleChange = (event) => {
     setMaterial(event.target.value);
+   // updateLabel(event.target.label);
+   // alert(event.target.label);
     
   };
 
@@ -88,7 +90,7 @@ export default function SelectTextFields() {
           helperText="Please select your Material"
         >
           {materials.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
+            <MenuItem key={option.value} value={option.value} >
               {option.label}
             </MenuItem>
             

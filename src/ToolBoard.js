@@ -6,17 +6,18 @@ import Typography from "@mui/material/Typography";
 
 import CategoryMenu from "./CategoryMenu";
 import BodySearch from "./BodySearch";
-import JobList from "./JobList";
+import JobList from "./ToolList";
 import { MainBody } from "./StyledComponents";
 
-export default function JobBoard({ allJobs }) {
+export default function ToolBoard({ allTools }) {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const categories = [];
 
-  for (let job of allJobs) {
-    if (!categories.includes(job.category)) {
-      categories.push(job.category);
+
+  for (let tool of allTools) {
+    if (!categories.includes(tool.category)) {
+      categories.push(tool.category);
     }
   }
 
@@ -45,11 +46,11 @@ export default function JobBoard({ allJobs }) {
         <Box sx={{ width: "70%" }}>
           <BodySearch />
           <JobList
-            jobs={allJobs.filter((job) => {
+            tools={all.filter((tool) => {
               if (!selectedCategory) {
                 return true;
               }
-              return job.category === selectedCategory;
+              return tool.category === selectedCategory;
             })}
           />
         </Box>

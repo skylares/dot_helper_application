@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 
 import CategoryMenu from "./CategoryMenu";
 import BodySearch from "./BodySearch";
-import JobList from "./JobList";
+import JobList from "./ToolList";
 import { MainBody } from "./StyledComponents";
 import {Divider} from "@mui/material";
 
@@ -38,20 +38,11 @@ export default function AboutPage() {
                 About Us
               </Typography>
               <Typography variant="p" component="div" sx={{ marginBottom: "10px" }}>
-                I'm baby mukbang mixtape tacos, 8-bit brunch williamsburg coloring
-                book distillery green juice jean shorts cold-pressed slow-carb
-                snackwave. Man braid gochujang waistcoat sus, bicycle rights mixtape
-                meggings shoreditch godard hot chicken roof party migas cornhole.
-                Put a bird on it yuccie fingerstache deep v pork belly 90's blue
-                bottle post-ironic distillery mumblecore iPhone chicharrones. Small
-                batch heirloom coloring book kombucha cornhole stumptown actually
-                neutra bodega boys. Bruh franzen tacos tbh, man braid synth affogato
-                DIY drinking vinegar vibecession enamel pin hashtag wayfarers banjo
-                letterpress.
+              Let’s face it, we are LAZY… well not really, we just don’t want to spend extra time doing things that are unnecessary. In the world of Government Civil Engineering, there are countless tedious tasks that, frankly, are stuck in the stone age. Surely there’s a better solution than searching for that handwritten, miscalculated, note that has been stored in the bottom of a file cabinet for the last 6 years.
               </Typography>
     
               <Typography varian="p" component="div" sx={{marginBottom: "10px"}}>
-                Dummy text? More like dummy thicc text, amirite?
+              That’s where we come in. We strive to automate as many tasks as possible into one centralized location, in a way that just makes sense. Imagine a system where a contractor can survey a road and the data calculated is immediately and automatically compiled into a standardized format, and then generated into a bid for DOT to approve. Once approved, DOT/CEI employees will have access to the same exact data, leaving no room for miscommunication. While the work is being done, quantities are automatically updated in real time, and any erroneous items are flagged before they can become an issue. All areas from start to finish under one single system operating in harmony. 
               </Typography>
               <Divider />
             </Box>
